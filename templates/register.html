@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.login.label }}
+        {{ form.login() }}
+        <span>
+            {% for err in form.login.errors %}
+                {{ err }}
+            {% endfor %}
+        </span>
+    </p>
+    <p>
+        {{ form.password.label }}
+        {{ form.password() }}
+        <span>
+            {% for err in form.password.errors %}
+                {{ err }}
+            {% endfor %}
+        </span>
+    </p>
+    <p>
+        {{ form.password_confirm.label }}
+        {{ form.password_confirm() }}
+        <span id="confirmation"></span>
+        <span>
+            
+            {% for err in form.password_confirm.errors %}
+                {{ err }}
+            {% endfor %}
+        </span>
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+<script src="static/password.js"></script>
+{% endblock %}
